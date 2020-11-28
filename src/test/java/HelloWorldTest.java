@@ -27,6 +27,7 @@ class HelloWorldTest {
         if(isCI()) {
             chromeOptions.addArguments("--headless");
             chromeOptions.addArguments("--no-sandbox");
+            chromeOptions.addArguments("--disable-dev-shm-usage");
         }
         try {
             webDriver = new ChromeDriver(chromeOptions);
