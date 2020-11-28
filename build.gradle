@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+group 'com.jamesmudd'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -10,4 +10,7 @@ repositories {
 }
 
 dependencies {
+    compile "com.sparkjava:spark-core:2.9.3"
+    runtime "org.slf4j:slf4j-simple:1.7.30"
+
 }
