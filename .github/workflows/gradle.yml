@@ -24,10 +24,11 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew --stacktrace build
+      run: ./gradlew build
     - name: Publish test results
       uses: actions/upload-artifact@v2
       with:
         name: junit-results
-        path: gh-actions-selenium/build/reports/tests/test/index.html
+        path: build/reports/tests/test/index.html
+        if-no-files-found: error
 
