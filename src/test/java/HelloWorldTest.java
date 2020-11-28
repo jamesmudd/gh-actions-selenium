@@ -25,10 +25,13 @@ class HelloWorldTest {
         System.out.println("ChromeDriver path: " + System.getProperty("webdriver.chrome.driver"));
         ChromeOptions chromeOptions = new ChromeOptions();
         if(isCI()) {
+            System.out.println("Running in CI");
             chromeOptions.addArguments("--no-sandbox");
-            chromeOptions.addArguments("--headless"); //!!!should be enabled for Jenkins
-            chromeOptions.addArguments("--disable-dev-shm-usage"); //!!!should be enabled for Jenkins
-            chromeOptions.addArguments("--window-size=1920x1080"); //!!!should be enabled for Jenkins
+            chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--disable-dev-shm-usage");
+            chromeOptions.addArguments("--window-size=1024x768");
+            chromeOptions.addArguments("--disable-extensions");
+            chromeOptions.addArguments("--disable-gpu");
 
         }
         try {
