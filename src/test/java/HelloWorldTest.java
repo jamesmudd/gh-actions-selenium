@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,10 +16,18 @@ class HelloWorldTest {
 
     private static final String HELLO_URL = "http://localhost:4567/hello";
 
+    private static boolean isCI() {
+        return Boolean.getBoolean("CI");
+    }
+
     @BeforeAll
     static void setupWebDriver() {
         System.out.println("ChromeDriver path: " + System.getProperty("webdriver.chrome.driver"));
-        webDriver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        if(isCI()) {
+            chromeOptions.addArguments("--headless");
+        }
+        webDriver = new ChromeDriver(chromeOptions);
     }
 
     @AfterAll
