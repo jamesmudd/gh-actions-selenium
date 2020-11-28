@@ -26,6 +26,7 @@ class HelloWorldTest {
         ChromeOptions chromeOptions = new ChromeOptions();
         if(isCI()) {
             chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--no-sandbox");
         }
         try {
             webDriver = new ChromeDriver(chromeOptions);
