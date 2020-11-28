@@ -27,7 +27,13 @@ class HelloWorldTest {
         if(isCI()) {
             chromeOptions.addArguments("--headless");
         }
-        webDriver = new ChromeDriver(chromeOptions);
+        try {
+            webDriver = new ChromeDriver(chromeOptions);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.flush();
+            throw e;
+        }
     }
 
     @AfterAll
