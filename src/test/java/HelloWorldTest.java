@@ -17,7 +17,7 @@ class HelloWorldTest {
     private static final String HELLO_URL = "http://localhost:4567/hello";
 
     private static boolean isCI() {
-        return System.getProperty("CI") != null;
+        return System.getenv("CI") != null;
     }
 
     @BeforeAll
@@ -26,12 +26,11 @@ class HelloWorldTest {
         ChromeOptions chromeOptions = new ChromeOptions();
         if(isCI()) {
             System.out.println("Running in CI");
-            chromeOptions.addArguments("--no-sandbox");
-            chromeOptions.addArguments("--headless");
-            chromeOptions.addArguments("--disable-dev-shm-usage");
-            chromeOptions.addArguments("--window-size=1024x768");
-            chromeOptions.addArguments("--disable-extensions");
-            chromeOptions.addArguments("--disable-gpu");
+            chromeOptions.addArguments(
+                    "no-sandbox",
+                    "headless",
+                    "disable-dev-shm-usage"
+            );
 
         }
         try {
