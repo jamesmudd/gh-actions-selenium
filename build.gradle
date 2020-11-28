@@ -13,4 +13,13 @@ dependencies {
     compile "com.sparkjava:spark-core:2.9.3"
     runtime "org.slf4j:slf4j-simple:1.7.30"
 
+    testImplementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
