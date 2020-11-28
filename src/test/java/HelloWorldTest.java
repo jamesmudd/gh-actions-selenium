@@ -17,7 +17,7 @@ class HelloWorldTest {
     private static final String HELLO_URL = "http://localhost:4567/hello";
 
     private static boolean isCI() {
-        return Boolean.getBoolean("CI");
+        return System.getProperty("CI") != null;
     }
 
     @BeforeAll
@@ -25,9 +25,11 @@ class HelloWorldTest {
         System.out.println("ChromeDriver path: " + System.getProperty("webdriver.chrome.driver"));
         ChromeOptions chromeOptions = new ChromeOptions();
         if(isCI()) {
-            chromeOptions.addArguments("--headless");
             chromeOptions.addArguments("--no-sandbox");
-            chromeOptions.addArguments("--disable-dev-shm-usage");
+            chromeOptions.addArguments("--headless"); //!!!should be enabled for Jenkins
+            chromeOptions.addArguments("--disable-dev-shm-usage"); //!!!should be enabled for Jenkins
+            chromeOptions.addArguments("--window-size=1920x1080"); //!!!should be enabled for Jenkins
+
         }
         try {
             webDriver = new ChromeDriver(chromeOptions);
