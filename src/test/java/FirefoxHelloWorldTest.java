@@ -12,12 +12,7 @@ public class FirefoxHelloWorldTest extends HelloWorldTestBase {
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         if(isCI()) {
             System.out.println("Running in CI");
-            firefoxOptions.addArguments(
-                    "no-sandbox",
-                    "headless",
-                    "disable-dev-shm-usage"
-            );
-
+            firefoxOptions.addArguments("--headless");
         }
         webDriver = new FirefoxDriver(firefoxOptions);
     }
