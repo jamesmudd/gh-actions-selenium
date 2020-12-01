@@ -36,5 +36,4 @@ jobs:
       with:
         name: junit-results
         path: build/reports/tests/test/index.html
-        if: always() # Run even on failure
         if-no-files-found: error
