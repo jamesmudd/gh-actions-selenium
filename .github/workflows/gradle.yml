@@ -29,8 +29,13 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Run App with Gradle
+      run: |
+        ./gradlew runApp & # Run app in background
+        export APP_PID=$! # Store PID to allow app to kill
+
+    - name: Run Tests
+      run: ./gradlew test
 
     - name: Publish test results
       uses: actions/upload-artifact@v2

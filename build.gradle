@@ -24,3 +24,9 @@ test {
         showStandardStreams = true
     }
 }
+
+task runApp(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+
+    main = 'HelloWorld'
+}
