@@ -25,9 +25,11 @@ jobs:
       with:
         java-version: 11
 
+    - name: Build
+      run: ./gradlew assemble
+
     - name: Run App with Gradle
-      run: |
-        ./gradlew runApp & # Run app in background
+      run: ./gradlew runApp & # Run app in background
 
     - name: Run Tests
       run: ./gradlew test
