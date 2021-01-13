@@ -14,7 +14,7 @@ abstract class HelloWorldTestBase {
 
     protected static WebDriver webDriver;
 
-    private static final String HELLO_URL = "http://localhost:4567/hello";
+    private static final String HELLO_URL = "http://127.0.0.1:4567/hello";
 
     protected static boolean isCI() {
         return System.getenv("CI") != null;
