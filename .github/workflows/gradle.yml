@@ -32,7 +32,7 @@ jobs:
       run: ./gradlew runApp & # Run app in background
 
     - name: Run Tests
-      run: ./gradlew test
+      run: ./gradlew --stacktrace test
 
     - name: Publish test results
       uses: actions/upload-artifact@v2
