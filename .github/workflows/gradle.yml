@@ -35,7 +35,7 @@ jobs:
       run: sleep 10
 
     - name: Curl check
-      run: curl localhost:4568/hello
+      run: curl localhost:4567/hello
 
     - name: Run Tests
       run: ./gradlew test
