@@ -23,10 +23,12 @@ abstract class HelloWorldTestBase {
     @BeforeAll
     static void waitForServerToStart() throws Exception {
         try {
+            System.out.println("Checking server connection...");
             URL url = new URL(HELLO_URL);
             URLConnection urlConnection = url.openConnection();
             urlConnection.setConnectTimeout(30_000); // Wait for upto 30 sec
             urlConnection.connect();
+            System.out.println("Connected to server");
         } catch (Exception e) {
             System.out.println("Failed to connect to server: " + e.getMessage());
             e.printStackTrace();
